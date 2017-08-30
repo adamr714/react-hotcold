@@ -1,9 +1,9 @@
 // Generate a random number
-export const START_GAME = 'START_GAME';
-export const startGame = (randomNumber) => ({
-    type: START_GAME,
-    startGame: randomNumber
-});
+// export const START_GAME = 'START_GAME';
+// export const startGame = (randomNumber) => ({
+//     type: START_GAME,
+//     startGame: randomNumber
+// });
 
 // Guess a number
 export const GUESS_NUMBER = 'GUESS_NUMBER';
