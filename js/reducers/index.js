@@ -23,6 +23,6 @@ export const repositoryReducer = (state=initialRepositoryState, action) => {
 
     else if (action.type === action.PLAY_AGAIN) {
           
-
+    }
     return state;
 };

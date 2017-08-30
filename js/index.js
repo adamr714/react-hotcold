@@ -7,5 +7,5 @@ import GuessContainer from './components/guess-container';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(<div> </div>, document.getElementById('app'));
+    ReactDOM.render(<GuessContainer />, document.getElementById('app'));
 })
