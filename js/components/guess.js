@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
+import {connect}  from 'react-redux';
 
 import * as actions from '../actions/index';
 import store from '../store';
 
 
-export default class Guess extends React.Component {
+export class Guess extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,10 +26,15 @@ export default class Guess extends React.Component {
             <div className="guess">
                 <form ref="guessInput" onSubmit={this.onFormSubmit}>
                     <input type="text" ref="myInput" />
-                    <input type="submit" value="submit" />
+                    <input type="submit" value="submit"/>
                 </form>
             </div>    
         )
     }
 }
 
+const mapStateToProps = (state, props) => ({
+    data: state
+});
+
+export default connect(mapStateToProps)(Guess);
