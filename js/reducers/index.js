@@ -1,21 +1,12 @@
 import * as actions from '../actions/index';
 import store from '../store';
 
-// const initialState = Math.floor((Math.random() * 100) + 1);
 const initialState={
+    randomNumber: 0,
     gameStarted: false,
     };
 
-// const reducer = (state, action) => {
-//     state = state || initialState;
-//     return {
-//         guess: boardReducer(state.guess, action),
-//     };
-// }
-
-
-export const guessReducer = (state=initialState, action) => {
-    // debugger;
+export const guessReducer = (state=initialState, action) => {   
     if (action.type === actions.GUESS_NUMBER) {
         return guessNumber(action, state);
     }
@@ -25,17 +16,47 @@ export const guessReducer = (state=initialState, action) => {
     }
 
 
-    else if (action.type === actions.PLAY_AGAIN) {
+    else if (action.type === actions.PLAY_AGAIN) {       
         console.log('Game Starting');
-        return {gameStarted:true};   
+        var result = startGame();
+        return result;  
     }
 
     return state;
 };
 
+function startGame(state) {
+    let bob = Object.assign({}, state, {randomNumber: Math.floor((Math.random() * 100) + 1), gameStarted: true});
+    console.log('Your target number is ' + bob.randomNumber);
+    return bob;
+}
+
+function endGame(state) {
+    let gameOver = Object.assign({}, state, {gameStarted: false});
+    console.log('Game Over');
+    return gameOver;
+}
+
 function guessNumber(action, state) {
-    console.log(action);
-    let newState = Object.assign(state, {message:`Your guess is: ${action.guess}`}); 
-    debugger;
+    let message = null;
+    
+    if (action.guess == state.randomNumber) {
+        message = 'You Won!' 
+        var endOfGame = endGame();
+        return endOfGame;
+               
+    } 
+    else if(action.guess > state.randomNumber) {
+        message = 'Too Hot'
+    } 
+    else {
+      console.log(action.guess, state.randomNumber);  
+      message =   "Too Cold"
+    };
+
+    let newState = Object.assign({}, state, {message: message});
     return newState;
 }
+
+
+

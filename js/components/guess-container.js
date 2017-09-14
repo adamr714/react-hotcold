@@ -26,7 +26,7 @@ export class GuessContainer extends React.Component {
             guessComponent = <Guess/>
         }   
         else {
-            guessComponent = <button type="button" onClick={this.onClick}>Replay</button>
+            guessComponent = <button type="button" onClick={this.onClick}>Start Game!</button>
         }         
         return (
             <div className="guessContainer">

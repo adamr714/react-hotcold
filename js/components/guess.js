@@ -25,8 +25,8 @@ export class Guess extends React.Component {
         return (
             <div className="guess">
                 <form ref="guessInput" onSubmit={this.onFormSubmit}>
-                    <input type="text" ref="myInput" />
-                    <input type="submit" value="submit"/>
+                    <input type="text" ref="myInput" /><br />
+                    <input type="submit" value="Guess"/>
                 </form>
             </div>    
         )
